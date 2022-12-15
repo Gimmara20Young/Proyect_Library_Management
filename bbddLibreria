@@ -1,0 +1,801 @@
+-- Base de datos: `proyect_library_management`
+--
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `authors`
+--
+CREATE TABLE `authors` (
+  `ID_AUTHOR` int(11) NOT NULL,
+  `FIRST_NAME` varchar(50) NOT NULL,
+  `LAST_NAME` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- iserccion de datos para la tabla `authors`
+--
+
+INSERT INTO `authors` (`ID_AUTHOR`, `FIRST_NAME`, `LAST_NAME`) VALUES
+(1, 'Rose Marie', 'Tapia'),
+(2, 'Ricardo', 'Puello'),
+(3, 'Enrrique ', 'Jaramillo'),
+(4, 'Rosa Maria', 'Britton'),
+(5, 'Roberto', 'Luzcando'),
+(6, 'Osvaldo ', 'Reyes'),
+(7, 'Carlos ', 'Cuauhtémoc'),
+(8, 'Robert', 'Kiyosaqui'),
+(9, 'Michael', 'Lewis'),
+(10, 'Vicente', 'Hernandez');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `book`
+--
+
+CREATE TABLE `book` (
+  `ID_BOOK` int(11) NOT NULL,
+  `TITLE` varchar(255) NOT NULL,
+  `ISBN` varchar(30) NOT NULL,
+  `PAGE` int(11) NOT NULL,
+  `ID_LANGUAGE` int(11) NOT NULL,
+  `EDITION` int(11) NOT NULL,
+  `ID_AUTHOR` int(11) NOT NULL,
+  `ID_PUBLISHER` int(11) NOT NULL,
+  `PUBLICATION` year(4) NOT NULL,
+  `ID_SETION` int(11) NOT NULL,
+  `ID_COPY` int(11) NOT NULL,
+  `DESCRIPTION` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `book`
+--
+
+INSERT INTO `book` (`ID_BOOK`, `TITLE`, `ISBN`, `PAGE`, `ID_LANGUAGE`, `EDITION`, `ID_AUTHOR`, `ID_PUBLISHER`, `PUBLICATION`, `ID_SETION`, `ID_COPY`, `DESCRIPTION`) VALUES
+(3, 'Una breve historia de casi todo', '8492966793', 640, 1, 67, 1, 1, 2021, 1, 1, 'Una breve historia de casi todo es un libro de divulgación científica de Bill Bryson escrito en 2003, en el que se aborda la historia de la ciencia desde la perspectiva de cómo fue evolucionando el saber y entrega aspectos curiosos de la vida de sus protagonistas, con sus grandezas, miserias y excentricidades'),
+(4, '¿Qué hace un bosón como tú en un Big Bang como este?', ' ‎8413843901', 408, 1, 40, 2, 3, 2009, 1, 20, 'Un libro para todos los públicos, ameno y desenfadado, que explica -¡y se entiende!- conceptos tan abstractos como los campos cuánticos o el bosón de Higgs. Narrado por un científico que participó en el descubrimiento de esta partícula, el autor de El bosón de Higgs no te va a hacer la cama'),
+(5, 'Orgullo y prejuiciO', '9786589711452', 2000, 8, 2, 8, 4, 2008, 2, 5, 'Orgullo y prejuicio es una novela clave de comienzos de siglo XIX. La obra causó sensación en la época por ser un alegato contra el matrimonio de conveniencia en la sociedad burguesa del momento.\r\n\r\nElizabeth Bennet es una joven que, al igual que sus cinco hermanas, debe contraer matrimonio para que pueda recibir la herencia familiar cuando su padre fallezca. Sin embargo, la muchacha está decidida a casarse por amor y no por imposición. Pronto aparece en su camino Darcy, el amigo del señor Bingley, un hombre rico que acaba de llegar a la región y se establece como vecino de la familia Bennet'),
+(6, 'El ruiseñor, de Kristin Hannah', '45754548487899', 240, 8, 6, 8, 4, 2011, 2, 10, 'Esta novela está enmarcada en Francia, durante la Segunda Guerra Mundial. Vianne vive junto a su familia y su marido tiene que marcharse a combatir en el frente. Cuando los nazis invaden Francia, Vienne se verá obligada a arriesgarlo todo, incluso convivir con el enemigo, para proteger a su hija.\r\n\r\nEntretanto, Isabelle, hermana de Vianne, se enamora de Gaëton, un partisano por el cual se une a la resistencia para luchar en la guerra.'),
+(7, 'El inversor inteligente Tapa blanda', '978-8423425174', 401, 5, 8, 6, 8, 2050, 10, 40, 'En el libro, Graham explica que el inversor inteligente no es quien busca beneficios a corto plazo, sino quien invierte a largo plazo. El inversor debe realizar una investigación exhaustiva para encontrar acciones infravaloradas, pero con un potencial de crecimiento.'),
+(8, 'El hombre más rico de Babilonia', '978-8477203711', 500, 5, 4, 6, 8, 2001, 9, 10, 'CÓMO ALCANZAR EL ÉXITO Y SOLUCIONAR SUS PROBLEMAS FINANCIEROS En este libro encontrará los principios fundamentales que necesita para triunfar en el terreno financiero y que le permitirán engrosar su bolsillo, aumentar su cuenta bancaria y asegurarse el éxito económico que todos anhelamos, aprendiendo a conservarlo y a hacerlo fructificar. Se trata de la guía perfecta tanto para graduados y especialistas como para profanos en el tema. Aprovechando las reglas básicas de la economía surgidas en la antigua Babilonia, y que todavía hoy en día son reconocidas y aplicadas por miles de especialistas, el autor, George S. Clason, nos enseña las leyes que llevan al éxito económico a través de un lenguaje ameno, sencillo y asequible para todos, con un libro que se lee como una novela. El dinero como criterio universal con el que se mide el éxito en nuestra sociedad, sólo abunda para el que conoce el medio de obtenerlo. Si quieres ser rico, lee este libro. George S. Samuel, nació en Luisiana y cursó sus estudios en la Universidad de Nebraska. Forjó una gran fortuna imprimiendo mapas con la CLASON MAP COMPANY de Denver, Colorado. Escribió una serie de artículos sobre economía y éxito financiero, ambientándolos en la antigua Babilonia. Sus escritos fueron distribuidos entre los empleados de banca y casas de seguros, habiéndose vendido ya varios millones de ejemplares de sus libros'),
+(9, 'EL HOBBIT', '9788445000656', 800, 7, 50, 3, 6, 1908, 10, 40, 'Un gran clásico moderno y el preludio de las vastas y poderosas mitologías de El Señor de los Anillos\r\nSmaug parecía profundamente dormido cuando Bilbo espió una vez más desde la entrada. ¡Pero fingía estar dormido! ¡Estaba vigilando la entrada del túnel!... Sacado de su cómodo agujero-hobbit por Gandalf y una banda de enanos, Bilbo se encuentra de pronto en medio de una conspiración que pretende apoderarse del tesoro de Smaug el Magnífico, un enorme y muy peligroso dragón'),
+(10, 'Harry Potter y la piedra filosofaL', '8478884459', 805, 1, 10, 1, 4, 2010, 1, 10, 'Harry Potter nunca ha oído hablar de Hogwarts hasta que empiezan a caer cartas en el felpudo del número 4 de Privet Drive. Llevan la dirección escrita con tinta verde en un sobre de pergamino amarillento con un sello de lacre púrpura, y sus horripilantes tíos se apresuran a confiscarlas. Más tarde, el día que Harry cumple once años, Rubeus Hagrid, un hombre gigantesco cuyos ojos brillan como escarabajos negros, irrumpe con una noticia extraordinaria: Harry Potter es un mago, y le han concedido una plaza en el Colegio Hogwarts de Magia y Hechicería. ¡Está a punto de comenzar una aventura increíble'),
+(16, 'El ultimo deseo', '8498890374', 401, 3, 4, 4, 10, 2001, 9, 20, 'El último deseo es una de las dos antologías de cuentos que preceden la serie principal de la Saga de Geralt de Rivia, creada por el escritor polaco Andrzej Sapkowski. La primera edición en polaco fue publicada en 1993 y la primera en español, en 2002, siendo además traducido a diversos idiomas'),
+(17, 'Los caminos se juntan', '40154578840', 1005, 6, 1, 5, 5, 2019, 4, 10, 'Ha pasado un siglo desde que los dioses lucharon y se extinguieron. Ahora solo quedan sus huesos, que prometen un gran poder a aquellos lo suficientemente valientes como para buscarlos. .'),
+(18, 'la sombra de los Dioses', '90154879565', 401, 5, 40, 7, 9, 2014, 3, 10, 'El ojo del mundo es una novela de fantasía del escritor estadounidense Robert Jordan y el primer libro de la serie La rueda del tiempo. Fue publicada por Tor Books en inglés y lanzada el 16 de enero de'),
+(19, 'Los Tercos tambien lloran', '9018865699566454', 508, 9, 5, 9, 7, 2008, 5, 14, 'El imperio final es una novela de fantasía escrita por el autor estadounidense Brandon Sanderson. Su versión original fue publicada el 17 de julio de 2006 por Tor Books y la traducción en español fue publicada en España por la editorial Nova en 2008'),
+(20, 'mi juventud eres tu', '601559599656', 501, 2, 2, 10, 10, 2014, 6, 30, 'El último unicornio es una novela estadounidense de fantasía publicada en 1968, primer libro de Peter S. Beagle. Fue adaptada como largometraje animado por Rankin y Bass en 1978, con guion del propio Beagle');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `categories`
+--
+CREATE TABLE `categories` (
+  `ID_CATEGORY` int(11) NOT NULL,
+  `CATEGORY` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Inserccion de datos para la tabla `categories`
+
+INSERT INTO `categories` (`ID_CATEGORY`, `CATEGORY`) VALUES
+(1, 'Científicos '),
+(2, 'Literatura y lingüísticos '),
+(3, ' De viaje '),
+(4, 'Biografías '),
+(5, 'Libro de texto '),
+(6, 'Libros de gran formato (coffee table book) '),
+(7, 'De referencia o consulta'),
+(8, 'Monografías'),
+(9, 'Recreativos'),
+(10, 'Poéticos'),
+(11, 'Juveniles'),
+(12, 'Ficción'),
+(13, 'Comedia');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cities`
+--
+
+CREATE TABLE `cities` (
+  `ID_CITY` int(11) NOT NULL,
+  `CITY` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Inserccion de datos para la tabla `cities`
+--
+INSERT INTO `cities` (`ID_CITY`, `CITY`) VALUES
+(1, 'Bocas del Toro'),
+(2, 'Coclé'),
+(3, 'Colón'),
+(4, 'Chiriquí'),
+(5, 'Darién'),
+(6, 'Herrera'),
+(7, 'Los Santos'),
+(8, 'Panamá'),
+(9, 'Veraguas'),
+(10, 'Guna Yala'),
+(11, 'Emberá Wounaan '),
+(12, 'Ngäbe-Buglé'),
+(13, 'Panamá Oeste '),
+(14, 'Madugandí '),
+(15, 'Wargandí');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `copies`
+--
+
+CREATE TABLE `copies` (
+  `ID_COPY` int(11) NOT NULL,
+  `ID_BOOK` int(11) NOT NULL,
+  `STATUS` varchar(25) NOT NULL,
+  `ID_USER` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Inserccion de datos para la tabla `copies`
+--
+INSERT INTO `copies` (`ID_COPY`, `ID_BOOK`, `STATUS`, `ID_USER`) VALUES
+(1, 1, '200', 0),
+(2, 2, '45', 0),
+(3, 3, '24', 0),
+(4, 4, '24', 0),
+(5, 5, '50', 0),
+(6, 6, '12', 0),
+(7, 7, '80', 0),
+(8, 8, '10', 0),
+(9, 9, '5', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `faculties`
+--
+
+CREATE TABLE `faculties` (
+  `ID_FACULTY` int(11) NOT NULL,
+  `FACULTY` varchar(50) NOT NULL,
+  `ID_LIBRARY` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Inserccion de datos para la tabla `faculties`
+--
+
+INSERT INTO `faculties` (`ID_FACULTY`, `FACULTY`, `ID_LIBRARY`) VALUES
+(1, 'INGENIERIA', 1),
+(2, 'Arquitectura', 2),
+(3, 'Diseño', 3),
+(4, 'Comunicacion', 1),
+(5, 'Educación Social y Desarrollo Humano', 1),
+(6, 'Ciencias Médicas y Clínicas', 8),
+(7, 'Facultad de Educación Especial y Pedagogía', 5);
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `genders`
+--
+CREATE TABLE `genders` (
+  `ID_GENDERS` int(11) NOT NULL,
+  `GENDERS` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Inserccion de datos para la tabla `genders`
+--
+INSERT INTO `genders` (`ID_GENDERS`, `GENDERS`) VALUES
+(1, 'Épico o narrativo'),
+(2, 'Lírico'),
+(3, 'Dramatico'),
+(4, 'Aventura'),
+(5, 'Ciencia Ficción'),
+(6, 'Cuentos de Hadas'),
+(7, 'Novela Gótica'),
+(8, 'Policíaca'),
+(9, 'Paranormal'),
+(10, 'Distópica'),
+(11, 'Fantástica');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `language`
+--
+CREATE TABLE `language` (
+  `ID_LANGUAGE` int(11) NOT NULL,
+  `LANGUAJE` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Inserccion de datos para la tabla `language`
+--
+INSERT INTO `language` (`ID_LANGUAGE`, `LANGUAJE`) VALUES
+(1, 'Español'),
+(2, 'Ngäbere'),
+(3, 'Kuna'),
+(4, 'Embera'),
+(5, 'Chino'),
+(6, 'Arabe'),
+(7, 'Frances'),
+(8, 'Ingles'),
+(9, 'Alemán'),
+(10, 'Patua');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `libraries`
+--
+CREATE TABLE `libraries` (
+  `ID_LIBRARY` int(11) NOT NULL,
+  `NAME` varchar(50) NOT NULL,
+  `PHONE` varchar(20) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL,
+  `ID_NEW` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Volcado de datos para la tabla `libraries`
+--
+INSERT INTO `libraries` (`ID_LIBRARY`, `NAME`, `PHONE`, `DESCRIPTION`, `ID_NEW`) VALUES
+(1, 'Librería Cultural Pa', '373-0722', '\"La mejor puerta hacia nuestra querida Panamá La V', 0),
+(2, 'El Lector Panamá', '223-5628', '', 0),
+(3, 'El Hombre de la Manc', ' 507 200-2438', 'Visita nuestra amplia variedad de géneros literarios y compra tus libros favoritos en la Tienda Onli', 0),
+(4, 'Variedades RR', ' 6798-4477', 'Todo lo que necesitas para el mundo del saber', 0),
+(5, 'Mi libroColón, S.A', ' 441-4525', '\"la mejor libreria de todo  Panamá.\"', 0),
+(6, 'Libreria Católica', ' 774-8116', 'La empresa Librería Católica cuneta con variedades de libros, en diferentes generos y gustos.', 0),
+(7, 'Distexsa | El Dorado', '507 360-6000', 'cuenta con excelentes precios, variedades y mucho mas', 0),
+(8, 'Librería San Pablo |', '507 226-4794', 'Editorial San Pablo utiliza nuevas tecnologías y lleva sus productos al público en general, facilita', 0),
+(9, 'Libreria EDUCA, S.A', '507 6575-6019', 'es una oferta independiente de ventas y asesoría profesional de libros en LatinoAmérica', 0),
+(10, 'Librería Cultural Po', '507 6678-7983', 'Cultural Portobelo es una oferta independiente de ventas y asesoría profesional de libros en LatinoA', 0);
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `news`
+--
+CREATE TABLE `news` (
+  `ID_NEW` int(11) NOT NULL,
+  `NEW_TITLE` varchar(100) NOT NULL,
+  `NEW_SUMARY` text NOT NULL,
+  `NEW_DETAILS` text NOT NULL,
+  `NEW_REFERENCE` varchar(100) NOT NULL,
+  `NEW_DATE` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Volcado de datos para la tabla `news`
+--
+INSERT INTO `news` (`ID_NEW`, `NEW_TITLE`, `NEW_SUMARY`, `NEW_DETAILS`, `NEW_REFERENCE`, `NEW_DATE`) VALUES
+(1, 'UNA VIDA EN NUESTRO PLANETA: MI TESTIMONIO Y UNA VISIÓN PARA EL FUTURO', 'A estas alturas sería ridículo tratar de presentar a David Attenborough, quien durante casi tres cuartos de siglo y para buena parte del mundo ha sido la figura más reconocida en el documentalismo de naturaleza ha cumplido ya los 96 años. Y como toda persona a tan longeva edad, ha decidido hacer testamento. El suyo, en doble versión de libro y exitoso documental de Netflix, es una reflexión guiada sobre su larga vida como abogado de la biodiversidad y sobre el deterioro del planeta del que ha sido testigo a lo largo de siete décadas. En los últimos trabajos de Attenborough, la destrucción de la naturaleza causada por los humanos ha pasado de ser una nota al pie a alzarse con el papel protagonista. Todo ello sin caer en el derrotismo, pero tampoco en la simpleza idealista y candorosa del llamado pensamiento positivo; el resumen es que sí, aún tenemos una oportunidad, dice Attenborough. ', 'En los últimos trabajos de Attenborough, la destrucción de la naturaleza causada por los humanos ha pasado de ser una nota al pie a alzarse con el papel protagonista. Todo ello sin caer en el derrotismo, pero tampoco en la simpleza idealista y candorosa del llamado pensamiento positivo; el resumen es que sí, aún tenemos una oportunidad, dice Attenborough. Pero ya es la última.', 'David Attenborough (Crítica, 2021)', '2021-07-14'),
+(2, 'LA ECUACIÓN DE DIOS: LA BÚSQUEDA DE UNA TEORÍA DEL TODO', 'Cada nuevo libro del físico y divulgador Michio Kaku es una apuesta segura a la lista de best sellers. Y no podía serlo menos una obra que en cierto modo podría entenderse como una especie de Silmarillion de todo su trabajo anterior. En La ecuación de Dios vuelve la vista atrás para compendiar cómo históricamente la física ha ido elaborando teorías que engloban a las anteriores en busca de una que finalmente sea capaz de explicar el universo en su conjunto; desde la idea de los átomos en la Grecia clásica, pasando por la gravedad newtoniana, hasta un momento en el que las dos grandes teorías parciales, la relatividad general de Einstein y la mecánica cuántica, no se entienden entre sí', 'En busca de esa “ecuación Dios” —más que “de Dios”— capaz de unificar todas las fuerzas de la naturaleza, lógicamente Kaku postula la teoría de cuerdas que él ha ayudado a construir, aunque sin soslayar las críticas de sus detractores ni el hecho reconocido de que aún no existen evidencias que la apoyen.', 'Michio Kaku (Debate, 2022)', '2022-05-04'),
+(3, 'GENES DE COLORES', 'las razas humanas no existen. No es ninguna metáfora ni un bonito deseo de hermanamiento universal, sino una mera descripción científica de lo que la biología ha aprendido en las últimas décadas sobre lo que se entiende o no como “razas”. En el Centro Nacional de Biotecnología (Madrid), Lluís Montoliu lleva décadas estudiando las enfermedades raras con modelos como el del albinismo, lo que le ha convertido en un experto en los genes de la pigmentación, los “genes de colores”.', 'En su nuevo libro, ilustrado por Jesús Romero, explica cómo solo un 0,1% de variaciones genéticas individuales realmente distingue a unas personas de otras; diferencias tan evidentes a la vista como el color de piel, ojos o pelo dependen de solo un puñado de genes más pequeño que el que nos distingue de los demás en otros muchos aspectos. Que esta insignificante minucia genética siga sirviendo aún hoy para amparar la discriminación y el odio es una monstruosidad que se convierte además en un disparate a la luz de la ciencia.  ', 'Lluís Montoliu y Jesús Romero (Next Door Publishers, 2022)', '2022-12-24'),
+(4, 'SURFEAR EL ESPACIO-TIEMPO: UN CIENTÍFICO ENTRE AGUJEROS NEGROS Y VIAJES HIPERLUMÍNICOS', 'El nombre del físico mexicano Miguel Alcubierre es de sobra conocido no solo por los científicos de su especialidad, sino también por muchos entusiastas de la ciencia ficción. En 1994, durante su tesis doctoral en la Universidad de Cardiff, Alcubierre publicó un estudio en el que ideaba un sistema de propulsión más rápido que la luz, compatible con la relatividad de Einstein y sin necesidad de agujeros de gusano. Tomando el término de la serie Star Trek, lo denominó warp drive (propulsor de curvatura). ', 'El después llamado Alcubierre drive es una de las propuestas teóricas más ponderadas y analizadas para plantear viajes interestelares sobre la pizarra, aunque el propio Alcubierre siempre ha cuestionado seriamente su viabilidad práctica. Con la colaboración del también físico y divulgador Sergio de Régules, Alcubierre nos relata la génesis de su idea, el desarrollo posterior y lo que todo ello nos enseña sobre el universo.', 'Miguel Alcubierre y Sergio de Régules (Debate, 2022)', '2022-06-29'),
+(5, 'Padre rico, Padre pobre', 'Este es uno de sus libros más exitosos, ya que explica muy bien los conceptos relacionados con los negocios y las finanzas. El libro básicamente explica la diferencia entre el pensamiento de una persona que tiene como sueño trabajar de funcionario o en una empresa, y las personas que realmente desean tener un poder adquisitivo y una libertad financiera.', 'Este libro busca destruir mitos sobre el mundo financiero y ayudarte a descubrir el genio económico que llevas dentro.', 'KIYOSAKI, R. (2003). PADRE RICO, PADRE POBRE: ¿QUE LES ENSEÑAN LOS RICOS A SUS HIJOS ACERCA DEL DINE', '2003-05-14'),
+(6, 'BULLSHIT: CONTRA LA CHARLATANERÍA: SER ESCÉPTICO EN UN MUNDO BASADO EN LOS DATOS', 'El único inconveniente de los libros dedicados a analizar y combatir el fenómeno de la desinformación y las fake news es que difícilmente van a leerlos quienes deberían; es decir, los propagadores y consumidores de esos bulos, que en los últimos años han alcanzado proporciones pandémicas. Pero el biólogo evolutivo Carl Bergstrom y el científico de datos Jevin West, ambos de la Universidad de Washington, van más allá: identificar bullshit sobre vacunas o estelas en el cielo es la parte fácil, pero no lo es tanto detectar cuándo son los propios gobiernos los que retuercen los datos para justificar sus políticas, o cuándo un ensayo clínico publicado en una prestigiosa revista médica es en realidad una nota de prensa disfrazada', 'El libro de Bergstrom y West no es una mera disertación, sino también una útil herramienta que instruye a no caer en estas trampas, por muy camufladas que estén.', 'Carl Bergstrom y Jevin West (Capitán Swing, 2021)', '2021-01-27'),
+(7, '¿ESTAMOS SOLOS? EN BUSCA DE OTRAS VIDAS EN EL COSMOS', 'En los últimos años el astrobiólogo Carlos Briones se ha consolidado como una de las voces más interesantes de la divulgación científica en español en lo relativo a la posible existencia de vida fuera de la Tierra. En su último libro, que se presenta como un volumen de viajes, nos invita a un recorrido por el espacio en el que muchos lectores encontrarán reminiscencias del Cosmos de Carl Sagan, una influencia que el propio autor reconoce', 'Todo ello acompañado por el equipaje cultural nacido de nuestra curiosidad como especie, y rematado por valiosas conversaciones del autor con otros expertos relevantes. ', 'Carlos Briones (Crítica, 2020)', '2021-04-05'),
+(8, 'REGENESIS: FEEDING THE WORLD WITHOUT DEVOURING THE PLANET', 'Una de las polémicas en torno al cambio climático que más fuerza ha cobrado en los últimos tiempos es la relativa a la producción de alimentos, y sobre todo el papel de la ganadería en las emisiones de gases de efecto invernadero. Para todo lector que busque una inmersión a fondo en el problema y sus posibles salidas, el último libro del zoólogo, activista y columnista británico George Monbiot |  es una buena recomendación. Pero no será un viaje suave: el propio título, Regenesis, anticipa la propuesta de una revolución radical en el sistema mundial de producción alimentaria', 'A través de un recorrido científico y de campo extensamente documentado, el libro presenta las tecnologías pioneras que se están aplicando para reducir la huella ambiental y climática de la alimentación, y que incluyen opciones como la producción en laboratorio. Sin embargo y aunque el autor aboga por un objetivo radical, la abolición de las granjas, expone la complejidad del problema y la ausencia de soluciones simples o milagrosas.  ', 'George Monbiot (Penguin, 2022)', '2022-08-30'),
+(9, 'CUADERNO DE NOAH DE NICHOLAS SPARKS', 'Una historia sobre el amor perdido y encontrado. 1946 La gente de Carolina del Norte despierta de la pesadilla de la guerra. Noah Calhoun, de 31 años, regresa allí para tratar de restaurar la plantación de la que vino, pero las imágenes de la hermosa joven que conoció hace catorce años nunca dejan de atormentarlo.hermano mayor. Aunque no pudo encontrarla, no pudo olvidarla. Fue entonces cuando de repente la encontró de nuevo. Ellie Nelson, de 29 años, está comprometida con otro hombre, pero admite que la pasión que alguna vez tuvo por Noah no ha disminuido su amor. Ellie se ve obligada a enfrentar sus esperanzas y sueños para el futuro, ya que la boda se llevará a cabo en unas pocas semanas. ', 'La novela fue llevada a la pantalla grande en una película protagonizada por Ryan Gosling y Rachel McAdams, aunque titulada El diario de Noah.', 'ROCABOLSILLO - 9788415729716', '2005-02-03');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `publishers`
+--
+CREATE TABLE `publishers` (
+  `ID_PUBLISHER` int(11) NOT NULL,
+  `PUBLISHER` varchar(50) NOT NULL,
+  `LOCATION` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- insercion de datos para la tabla `publishers`
+--
+INSERT INTO `publishers` (`ID_PUBLISHER`, `PUBLISHER`, `LOCATION`) VALUES
+(1, 'Ediciones Balboa, S.A', 'Calle Bona, Casa 929-B, La Boca, Panamá'),
+(2, 'Editorial Santillana Panamá', 'C. Eusebio A. Morales, 16, Panamá'),
+(3, 'Santillana Panamá', 'Vía Argentina, Panamá'),
+(4, 'Distexsa | El Dorado', ' PH Price Smart Tower Local #3, Vía Ricardo J. Alfaro, Panamá'),
+(5, 'Oceano Editorial', 'XFQC+75V, Panamá'),
+(6, 'Barrios & Barrios', 'Calle Parita PL, Casa 503, Panamá'),
+(7, 'Librería Cultural Panameña', 'Vía España No 16, Panamá'),
+(8, 'El Hombre de la Mancha ', 'Altaplaza Mall, Panamá'),
+(9, 'Editorial Susaeta panama', 'Av. Domingo Díaz, Panamá'),
+(10, 'El Lector Panamá', ' Albrook Mall, pasillo del hipopótamo, C. La Amistad, Panamá');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `roles`
+--
+CREATE TABLE `roles` (
+  `ID_ROLES` int(11) NOT NULL,
+  `ROLE` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- inserccion  de datos para la tabla `roles`
+--
+INSERT INTO `roles` (`ID_ROLES`, `ROLE`) VALUES
+(1, 'Estudiante'),
+(2, 'Profesor'),
+(3, 'Secretaria'),
+(4, 'Director'),
+(5, 'Gerente'),
+(6, 'Aseador'),
+(7, 'Inspecctor'),
+(8, 'Seguridad'),
+(9, 'Visitante');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sections`
+--
+
+CREATE TABLE `sections` (
+  `ID_SETION` int(11) NOT NULL,
+  `ID_CATEGORY` int(11) NOT NULL,
+  `SECTION` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- inserccion  de datos para la tabla `sections`
+--
+
+INSERT INTO `sections` (`ID_SETION`, `ID_CATEGORY`, `SECTION`) VALUES
+(1, 1, '01'),
+(2, 2, '02'),
+(3, 3, '03'),
+(4, 4, '04'),
+(5, 5, '05'),
+(6, 6, '06'),
+(7, 7, '06'),
+(8, 8, '05'),
+(9, 9, '04'),
+(10, 10, '03');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `semesters`
+--
+
+CREATE TABLE `semesters` (
+  `ID_SEMESTERS` int(11) NOT NULL,
+  `SEMESTERS` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- inserccion de datos para la tabla `semesters`
+--
+
+INSERT INTO `semesters` (`ID_SEMESTERS`, `SEMESTERS`) VALUES
+(1, 'I Semestre'),
+(2, 'II Semestre'),
+(3, 'III Semestre'),
+(4, 'IV Semestre'),
+(5, 'V Semestre'),
+(6, 'VI Semestre'),
+(7, 'VII Semestre'),
+(8, 'VII Semestre'),
+(9, 'Maestría'),
+(10, 'Pos grado');
+
+-- --------------------------------------------------------
+
+--
+-- inserccion de datos para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `ID_USER` int(11) NOT NULL,
+  `FIRST_NAME` varchar(50) NOT NULL,
+  `LAST_NAME` varchar(50) NOT NULL,
+  `ID_GENDERS` int(11) NOT NULL,
+  `ID_SEMESTERS` int(11) NOT NULL,
+  `EMAIL` varchar(30) NOT NULL,
+  `PHONE` varchar(20) NOT NULL,
+  `N_IDENTIFICATION` varchar(20) NOT NULL,
+  `ADDRESS` varchar(50) NOT NULL,
+  `USERNAME` varchar(50) NOT NULL,
+  `ID_CITY` int(11) NOT NULL,
+  `PASSWORD` varchar(15) NOT NULL,
+  `ID_ROLES` int(11) NOT NULL,
+  `ID_FACULTY` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- iserccion de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`ID_USER`, `FIRST_NAME`, `LAST_NAME`, `ID_GENDERS`, `ID_SEMESTERS`, `EMAIL`, `PHONE`, `N_IDENTIFICATION`, `ADDRESS`, `USERNAME`, `ID_CITY`, `PASSWORD`, `ID_ROLES`, `ID_FACULTY`) VALUES
+(1, 'Gimmara', 'Young', 4, 7, 'gimmara20young@gmail.com', '6783-6595', '3-746-1242', 'Colón, San Judas', 'gimmara20young', 3, '123', 1, 0),
+(2, 'Justinne', 'Anderson', 5, 2, 'justinneanderson@gmail.com', '6548-7889', '3-789-14', 'Colón, Cativa', 'justin anderson21', 3, '234', 1, 0),
+(3, 'Yessenia', 'Perez', 11, 2, 'yesseniaperez@gmail.com', '6358-7894', '8-789-4558', 'Panamá, san miguelito', 'yesseniaperez24', 8, '345', 2, 0),
+(4, 'Aminta', 'Moran', 9, 10, 'aminta23moran@gmail.com', '6584-8745', '7-845-4878', 'Veraguas, Containers', 'aminta23moran', 9, '4567', 2, 0),
+(5, 'Leonardo', 'Snabel', 3, 4, 'leonardosnabel878@gmail.com', '69874-5899', '5-789-145', 'Los Santo, Las Tablas', 'leonardosnabel', 7, '567', 4, 0),
+(6, 'Samuel', 'Lombada', 1, 5, 'SamLombada@gmail.com', '6547-5566', '6-789-41785', 'Coclé, san martin', 'SamLombada', 2, '678', 2, 0),
+(7, 'Samuel', 'Rodriguez', 1, 9, 'samuelrodriguez@gmail.com', '62-478-478', '9-785-4784', 'Veraguas, Santa Clara', 'samuelrodriguez', 9, '789', 8, 0),
+(8, 'Wiliam', 'Young', 8, 2, 'wilYoung@gmail.com', '454-98877', '8-789-47', 'Panamá, Las Cubres', 'wilYoung123', 8, '897', 9, 0),
+(9, 'Rosa Maria', 'Nieto', 7, 1, 'rosa21nieto@gmail.com', '6878-4785', '13-7847-7845', 'La Chorrera, La espiga', 'rosa21nieto', 13, '321', 8, 0),
+(10, 'Adrian', 'Moreno', 9, 1, 'adrian507moreno@gmail.com', '6147-6848', '13-7845-4487', 'La Espiga, Santa Ana', 'adrian507moreno', 13, '432', 6, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `usuariosdepanama`
+--
+CREATE TABLE `usuariosdepanama` (
+`FIRST_NAME` varchar(50)
+,`LAST_NAME` varchar(50)
+,`EMAIL` varchar(30)
+,`PHONE` varchar(20)
+,`ID_CITY` int(11)
+,`ID_ROLES` int(11)
+);
+
+-- --------------------------------------------------------
+--
+-- Estructura Stand-in para la vista `v_autorlibrosypublicaciones`
+--
+CREATE TABLE `v_autorlibrosypublicaciones` (
+`FIRST_NAME` varchar(50)
+,`TITLE` varchar(255)
+,`PUBLISHER` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_librosdel2014`
+--
+CREATE TABLE `v_librosdel2014` (
+`TITLE` varchar(255)
+,`PUBLICATION` year(4)
+,`ID_LANGUAGE` int(11)
+,`ID_PUBLISHER` int(11)
+);
+
+-- --------------------------------------------------------
+-- Estructura Stand-in para la vista `v_usuariosdecolon`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_usuariosdecolon` (
+`FIRST_NAME` varchar(50)
+,`ID_CITY` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_usuariosestudiantes`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_usuariosestudiantes` (
+`FIRST_NAME` varchar(50)
+,`ID_ROLES` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_usuariosprofesores`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_usuariosprofesores` (
+`FIRST_NAME` varchar(50)
+,`LAST_NAME` varchar(50)
+,`N_IDENTIFICATION` varchar(20)
+,`EMAIL` varchar(30)
+,`ID_ROLES` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_utoresyaño`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_utoresyaño` (
+`TITLE` varchar(255)
+,`EDITION` int(11)
+,`ID_AUTHOR` int(11)
+,`PUBLICATION` year(4)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `usuariosdepanama`
+--
+DROP TABLE IF EXISTS `usuariosdepanama`;
+
+CREATE VIEW `usuariosdepanama`  AS SELECT `users`.`FIRST_NAME` AS `FIRST_NAME`, 
+`users`.`LAST_NAME` AS `LAST_NAME`, `users`.`EMAIL` AS `EMAIL`, `users`.`PHONE` AS `PHONE`, 
+`users`.`ID_CITY` AS `ID_CITY`, `users`.`ID_ROLES` AS `ID_ROLES` FROM `users` WHERE `users`.
+`ID_CITY` = 13;
+
+-- --------------------------------------------------------
+-- Estructura para la vista `v_autorlibrosypublicaciones`
+--
+DROP TABLE IF EXISTS `v_autorlibrosypublicaciones`;
+
+CREATE VIEW `v_autorlibrosypublicaciones`  AS SELECT `authors`.`FIRST_NAME`
+ AS `FIRST_NAME`, `book`.`TITLE` AS `TITLE`, `publishers`.`PUBLISHER` AS
+  `PUBLISHER` FROM ((`authors` left join `book` on(`book`.`ID_AUTHOR` = `authors`.`ID_AUTHOR`))
+   left join `publishers` on(`book`.`ID_PUBLISHER` = `publishers`.`ID_PUBLISHER`))  ;
+
+-- --------------------------------------------------------
+-- Estructura para la vista `v_librosdel2014`
+--
+DROP TABLE IF EXISTS `v_librosdel2014`;
+
+CREATE VIEW `v_librosdel2014`  AS SELECT `book`.`TITLE` AS `TITLE`, `book`.`PUBLICATION` AS
+ `PUBLICATION`, `book`.`ID_LANGUAGE` AS `ID_LANGUAGE`, `book`.`ID_PUBLISHER` AS `ID_PUBLISHER` 
+ FROM `book` WHERE `book`.`PUBLICATION` >= '2014''2014'  ;
+
+-- --------------------------------------------------------
+-- Estructura para la vista `v_usuariosdecolon`
+--
+DROP TABLE IF EXISTS `v_usuariosdecolon`;
+
+CREATE VIEW `v_usuariosdecolon`  AS SELECT `users`.`FIRST_NAME` AS `FIRST_NAME`,
+ `users`.`ID_CITY` AS `ID_CITY` FROM `users` WHERE `users`.`ID_CITY` = 33  ;
+
+-- --------------------------------------------------------
+-- Estructura para la vista `v_usuariosestudiantes`
+--
+DROP TABLE IF EXISTS `v_usuariosestudiantes`;
+
+CREATE VIEW `v_usuariosestudiantes`  AS SELECT `users`.`FIRST_NAME` AS 
+`FIRST_NAME`, `users`.`ID_ROLES` AS `ID_ROLES` FROM `users` WHERE `users`.`ID_ROLES` = 11  ;
+
+-- --------------------------------------------------------
+-- Estructura para la vista `v_usuariosprofesores`
+--
+DROP TABLE IF EXISTS `v_usuariosprofesores`;
+
+CREATE VIEW `v_usuariosprofesores`  AS SELECT `users`.`FIRST_NAME` AS `FIRST_NAME`, 
+`users`.`LAST_NAME` AS `LAST_NAME`, `users`.`N_IDENTIFICATION` AS `N_IDENTIFICATION`, 
+`users`.`EMAIL` AS `EMAIL`, `users`.`ID_ROLES` AS `ID_ROLES` FROM `users` WHERE `users`.`ID_ROLES` = 2 ORDER BY `users`.`N_IDENTIFICATION` ASC  ;
+
+-- --------------------------------------------------------
+-- Estructura para la vista `v_utoresyaño`
+--
+DROP TABLE IF EXISTS `v_utoresyaño`;
+
+CREATE VIEW `v_utoresyaño`  AS SELECT `book`.`TITLE` AS `TITLE`, `book`.`EDITION` AS
+ `EDITION`, `book`.`ID_AUTHOR` AS `ID_AUTHOR`, `book`.`PUBLICATION` AS `PUBLICATION` FROM
+  `book` WHERE `book`.`ID_AUTHOR` = 1 AND `book`.`PUBLICATION` >= '2004''2004'  ;
+
+--
+-- Relaciones para tablas insertadas en total 15 relaciones
+--
+
+--
+-- Relaciones de la tabla `authors`
+--
+ALTER TABLE `authors`
+  ADD PRIMARY KEY (`ID_AUTHOR`);
+
+--
+-- Relaciones de la tabla `book`
+--
+ALTER TABLE `book`
+  ADD PRIMARY KEY (`ID_BOOK`),
+  ADD KEY `ID_LANGUAJE` (`ID_LANGUAGE`),
+  ADD KEY `ID_AUTHOR` (`ID_AUTHOR`),
+  ADD KEY `ID_PUBLISHER` (`ID_PUBLISHER`),
+  ADD KEY `ID_SETION` (`ID_SETION`),
+  ADD KEY `ID_FACULTY` (`ID_COPY`),
+  ADD KEY `ID_COPY` (`ID_COPY`);
+
+--
+-- Relaciones de la tabla `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`ID_CATEGORY`);
+
+--
+-- Relaciones de la tabla `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`ID_CITY`);
+
+--
+-- Relaciones de la tabla `copies`
+--
+ALTER TABLE `copies`
+  ADD PRIMARY KEY (`ID_COPY`),
+  ADD KEY `ID_BOOK` (`ID_BOOK`),
+  ADD KEY `ID_USER` (`ID_USER`);
+
+--
+-- Relaciones de la tabla `faculties`
+--
+ALTER TABLE `faculties`
+  ADD PRIMARY KEY (`ID_FACULTY`),
+  ADD KEY `ID_LIBRARY` (`ID_LIBRARY`);
+
+--
+-- Relaciones de la tabla `genders`
+--
+ALTER TABLE `genders`
+  ADD PRIMARY KEY (`ID_GENDERS`);
+
+--
+-- Relaciones de la tabla `language`
+--
+ALTER TABLE `language`
+  ADD PRIMARY KEY (`ID_LANGUAGE`);
+
+--
+-- Relaciones de la tabla `libraries`
+--
+ALTER TABLE `libraries`
+  ADD PRIMARY KEY (`ID_LIBRARY`),
+  ADD KEY `ID_NEW` (`ID_NEW`),
+  ADD KEY `ID_NEW_2` (`ID_NEW`);
+
+--
+-- Relaciones de la tabla `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`ID_NEW`);
+
+--
+-- Relaciones de la tabla `publishers`
+--
+ALTER TABLE `publishers`
+  ADD PRIMARY KEY (`ID_PUBLISHER`);
+
+--
+-- Relaciones de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`ID_ROLES`);
+
+--
+-- Relaciones de la tabla `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`ID_SETION`),
+  ADD KEY `ID_CATEGORY` (`ID_CATEGORY`);
+
+--
+-- Relacion de la tabla `semesters`
+--
+ALTER TABLE `semesters`
+  ADD PRIMARY KEY (`ID_SEMESTERS`);
+
+--
+-- Relaciones de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`ID_USER`),
+  ADD KEY `ID_GENDERS` (`ID_GENDERS`),
+  ADD KEY `ID_SEMESTERS` (`ID_SEMESTERS`),
+  ADD KEY `ID_CITY` (`ID_CITY`),
+  ADD KEY `ID_ROLES` (`ID_ROLES`),
+  ADD KEY `ID_FACULTY` (`ID_FACULTY`);
+
+--
+-- AUTO_INCREMENT de las tablas insertadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `authors`
+--
+ALTER TABLE `authors`
+  MODIFY `ID_AUTHOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `book`
+--
+ALTER TABLE `book`
+  MODIFY `ID_BOOK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `ID_CATEGORY` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `ID_CITY` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `copies`
+--
+ALTER TABLE `copies`
+  MODIFY `ID_COPY` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `faculties`
+--
+ALTER TABLE `faculties`
+  MODIFY `ID_FACULTY` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `genders`
+--
+ALTER TABLE `genders`
+  MODIFY `ID_GENDERS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `language`
+--
+ALTER TABLE `language`
+  MODIFY `ID_LANGUAGE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `libraries`
+--
+ALTER TABLE `libraries`
+  MODIFY `ID_LIBRARY` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `news`
+--
+ALTER TABLE `news`
+  MODIFY `ID_NEW` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `publishers`
+--
+ALTER TABLE `publishers`
+  MODIFY `ID_PUBLISHER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `ID_ROLES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `ID_SETION` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `semesters`
+--
+ALTER TABLE `semesters`
+  MODIFY `ID_SEMESTERS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- creacion de relaciones para tablas insertadas
+-- relacion  para la tabla `book` 
+--
+ALTER TABLE `book`
+  ADD CONSTRAINT `AUTHOR-BOOK` FOREIGN KEY (`ID_AUTHOR`) REFERENCES `authors` (`ID_AUTHOR`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `LENGUAGE-BOOK` FOREIGN KEY (`ID_LANGUAGE`) REFERENCES `language` (`ID_LANGUAGE`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `PUBLISHER-BOOK` FOREIGN KEY (`ID_PUBLISHER`) REFERENCES `publishers` (`ID_PUBLISHER`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `SECTION-BOOK` FOREIGN KEY (`ID_SETION`) REFERENCES `sections` (`ID_SETION`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- relaciones para la tabla `faculties`
+--
+ALTER TABLE `faculties`
+  ADD CONSTRAINT `library-facultad` FOREIGN KEY (`ID_LIBRARY`) REFERENCES `libraries` (`ID_LIBRARY`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-relaciones para la tabla `sections`
+--
+ALTER TABLE `sections`
+  ADD CONSTRAINT `section-categoria` FOREIGN KEY (`ID_CATEGORY`) REFERENCES `categories` (`ID_CATEGORY`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- relaciones para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `CITY-USER` FOREIGN KEY (`ID_CITY`) REFERENCES `cities` (`ID_CITY`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `GENDERS-USER` FOREIGN KEY (`ID_GENDERS`) REFERENCES `genders` (`ID_GENDERS`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ROLES-USER` FOREIGN KEY (`ID_ROLES`) REFERENCES `roles` (`ID_ROLES`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `SEMESTERS-USER` FOREIGN KEY (`ID_SEMESTERS`) REFERENCES `semesters` (`ID_SEMESTERS`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
